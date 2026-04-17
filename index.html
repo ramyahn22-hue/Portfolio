@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#projects -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramya H N | Professional Portfolio</title>
+    <link href="./index_files/css2" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0d0810;
+            --surface: #111827;
+            --primary: #6366f1;
+            --secondary: #0ea5e9;
+            --text-main: #f9fafb;
+            --text-dim: #9ca3af;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1.5rem 10%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); letter-spacing: -1px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO --- */
+        #home { 
+            padding: 10rem 10% 5rem; 
+            display: flex; align-items: center; justify-content: space-between; gap: 4rem;
+        }
+        .hero-text { flex: 1.5; }
+        .hero-tag { color: var(--primary); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 1rem; display: block; }
+        .hero-text h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-text span { background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .hero-image-area { flex: 1; display: flex; justify-content: center; }
+        .image-card {
+            width: 300px; height: 380px;
+            border-radius: 24px; border: 1px solid var(--border);
+            position: relative; animation: floating 5s ease-in-out infinite;
+            background: var(--surface); padding: 10px;
+        }
+        .image-card img {
+            width: 100%; height: 100%; object-fit: cover; border-radius: 18px;
+        }
+
+        /* --- SECTIONS --- */
+        section { padding: 6rem 10%; }
+        .section-header { margin-bottom: 4rem; }
+        .section-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; }
+        .section-header p { color: var(--primary); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* --- CARDS & GRIDS --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card {
+            background: var(--surface); padding: 2.5rem; border-radius: 20px;
+            border: 1px solid var(--border); transition: 0.4s;
+        }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); background: var(--glass); }
+
+        /* --- FORM --- */
+        .contact-wrapper {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem;
+            background: var(--surface); padding: 4rem; border-radius: 30px; border: 1px solid var(--border);
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--text-dim); }
+        input, textarea {
+            width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            padding: 1.2rem; border-radius: 12px; color: white; outline: none; transition: 0.3s;
+        }
+        input:focus, textarea:focus { border-color: var(--primary); background: rgba(99, 102, 241, 0.05); }
+
+        .submit-btn {
+            width: 100%; padding: 1.2rem; background: var(--primary); color: white;
+            border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s;
+        }
+        .submit-btn:hover { background: #4f46e5; animation: pulse 1.5s infinite; }
+
+        @media (max-width: 968px) {
+            #home { flex-direction: column-reverse; text-align: center; padding-top: 8rem; }
+            .contact-wrapper { grid-template-columns: 1fr; padding: 2rem; }
+        }
+    </style>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+
+    <nav>
+        <div class="logo">RAMYA.</div>
+        <ul class="nav-links">
+            <li><a href="file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#home">Home</a></li>
+            <li><a href="file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#education">Education</a></li>
+            <li><a href="file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#skills">Skills</a></li>
+            <li><a href="file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#certifications">certifications</a></li>
+            <li><a href="file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#interests">interests</a></li>
+            <li><a href="file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#projects">Projects</a></li>
+            <li><a href="file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero-text reveal active">
+            <span class="hero-tag">BCA GRADUATE • MCA CANDIDATE</span>
+            <h1>Ramya <span>H N</span></h1>
+            <p style="color: var(--text-dim); margin-bottom: 2.5rem; font-size: 1.1rem; max-width: 600px;">
+                Passionate technologist specialized in Computer Applications, AI, and Machine Learning. 
+                Dedicated to driving value through innovation and continuous academic excellence.
+            </p>
+            <a href="file:///C:/Users/Bhoomika%20Mahesh/Downloads/RamyaHN-Portfolioo.html#contact" class="submit-btn" style="text-decoration: none; display: inline-block; width: auto; padding: 1rem 2.5rem;">Hire Me →</a>
+        </div>
+        <div class="hero-image-area reveal active">
+            <div class="image-card">
+                <img src="ramya.jpeg" alt="Ramya H N Profile">
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-header reveal active">
+            <h2>My Education</h2>
+        </div>
+        <div class="grid">
+            <div class="card reveal active">
+                <span style="color: var(--secondary);">2022 — 2025</span>
+                <h3 style="margin: 1rem 0;">BCA</h3>
+                <p>JSS College for Women, Saraswathipuram, Mysore</p>
+                <p style="margin-top: 1rem; font-weight: 700; color: var(--primary);">CGPA: 8.8</p>
+            </div>
+            <div class="card reveal active">
+                <span style="color: var(--secondary);">2021 — 2022</span>
+                <h3 style="margin: 1rem 0;">Pre-University (EBACs)</h3>
+                <p>St. Norbert Chowhalli</p>
+                <p style="margin-top: 1rem; font-weight: 700; color: var(--primary);">Percentage: 92%</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="background: rgba(255,255,255,0.01);">
+        <div class="section-header reveal active">
+             <h2>Technical Skills</h2>
+        </div>
+        <div class="grid">
+            <div class="card reveal active">
+                <h3>Machine Learning</h3>
+                <p>Understanding of ML algorithms, model training, and deep learning fundamentals.</p>
+            </div><div class="card reveal active">
+                <h3>Problem Solving</h3>
+                <p>Analytical thinker with process control knowledge and structured approach.</p>
+            </div>
+            <div class="card reveal active">
+                <h3>Communication</h3>
+                <p>Professional communication, personality dynamics, and customer engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="section-header reveal active">
+            <h2>Certifications</h2>
+        </div>
+        <div class="grid">
+            <div class="card reveal active">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🤖</div>
+                <h3>AI Fundamentals</h3>
+                <p>Comprehensive training in Artificial Intelligence concepts, neural networks, and machine learning basics.</p>
+                <span style="display: block; margin-top: 1rem; font-size: 0.75rem; color: var(--primary); font-weight: 700;">VERIFIED GRADUATE</span>
+            </div>
+            <div class="card reveal active">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+                <h3> Digital Productivity with AI</h3>             
+                <p>Mastery of modern digital tools and AI-driven workflows to enhance professional efficiency.</p>
+                <span style="display: block; margin-top: 1rem; font-size: 0.75rem; color: var(--primary); font-weight: 700;">VERIFIED GRADUATE</span>
+            </div>
+            <div class="card reveal active">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+                <h3> Customer Engagement:Problem Solving and Process Controls</h3>             
+                <p>Developed systematic methodologies for diagnosing complex issues and implementing optimized process controls to ensure consistent service quality. </p>
+                <span style="display: block; margin-top: 1rem; font-size: 0.75rem; color: var(--primary); font-weight: 700;">VERIFIED GRADUATE</span>
+            </div>
+            <div class="card reveal active">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+                <h3>Customer Engagement:Communication and Personality Dynamics</h3>             
+                <p>Mastered professional communication strategies and personality dynamic analysis to enhance interpersonal engagement and customer relations.</p>
+                <span style="display: block; margin-top: 1rem; font-size: 0.75rem; color: var(--primary); font-weight: 700;">VERIFIED GRADUATE</span>
+            </div>
+        </div></section>
+
+        <section id="interests" style="background: rgba(255,255,255,0.01);">
+        <div class="section-header reveal active">
+            <h2>Interest</h2>
+        </div>
+        <div class="grid">
+            <div class="card reveal active">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">💻</div>
+                <h3>Learning New technology</h3>
+                <p>Dedicated to continuous professional growth by proactively mastering emerging frameworks, AI tools, and evolving industry standards.</p>
+            </div>
+
+            <div class="card reveal active">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🌐</div>
+                <h3>Machine Learning</h3>
+                <p>Applying algorithmic logic and statistical modeling to develop predictive systems and automated data-driven solutions.</p>
+            </div>
+
+            <div class="card reveal active">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🧠</div>
+                <h3>Communication</h3>
+                <p>Articulating complex technical concepts into clear, actionable insights while maintaining professional rapport across diverse stakeholders.</p>
+            </div>
+
+            <div class="card reveal active">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🎨</div>
+                <h3>Creative Logic</h3>
+                <p>Passionate about solving complex mathematical puzzles and building user-centric designs that bridge the gap between code and humans.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projects">
+        <div class="section-header reveal active">
+          <h2>projects</h2>
+        </div>
+        <div class="card re
+                veal" style="max-width: 900px; margin: 0 auto;">
+            <span style="color: var(--primary); font-size: 0.8rem; font-weight: 700;">ANDROID APPLICATION</span>
+            <h3 style="font-size: 1.8rem; margin: 1rem 0;">Rural Job Registration Platform (MGNREGA)</h3>
+            <p style="color: var(--text-dim); margin-bottom: 2rem;">
+                A versatile tool benefiting stakeholders in rural India. It simplifies implementation, 
+                tracking, and registration for the Mahatma Gandhi National Rural Employment Guarantee Act.
+            </p>
+            <div style="display: flex; gap: 1rem;">
+                <span style="background: var(--glass); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.8rem;">Java</span>
+                <span style="background: var(--glass); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.8rem;">SQL</span>
+                <span style="background: var(--glass); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.8rem;">XML</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-wrapper reveal active">
+            <div class="contact-info">
+                <h2>Let's <span>Connect.</span></h2>
+                <p style="color: var(--text-dim); margin: 1.5rem 0 3rem;">
+                    Currently open to new opportunities and collaborations. 
+                    Reach out if you want to work together!
+                </p>
+                <div style="font-size: 0.9rem;">
+                    <p style="margin-bottom: 1rem;">✉ ramyahn22@gmail.com</p>
+                    <p style="margin-bottom: 1rem;">📞 +91 7892035191</p>
+                    <p>📍 Mysore, Karnataka, India</p>
+                </div>
+            </div>
+
+            <form id="contact-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required="">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="email@example.com" required="">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="message" rows="5" placeholder="Your message here..." required=""></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 4rem; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border);">
+        © 2026 Ramya H N. Built with Passion &amp; Code.
+    </footer>
+
+    <script>
+        // Scroll Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Form Submit Simulation
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Thanks ${name}! Your message has been sent to Ramya.`);
+        });
+    </script>
+
+</body></html>
